@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>لیست محصولات</title>
+    <style>
+        body {
+            font-family: Arial;
+            direction: rtl;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .btn-edit {
+            background-color: #2196F3;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+        .btn-delete {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center;">مدیریت محصولات</h2>
+    <form method="GET" class="search-box">
+        <input type="text" name="q" placeholder="...جستجوی محصول" value="{{ query }}">
+        <button type="submit">جستجو</button>
+    </form>
+    <table>
+        <tr>
+            <th>ردیف</th>
+            <th>تصویر</th>
+            <th>نام محصول</th>
+            <th>قیمت (تومان)</th>
+            <th>عملیات</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 50px; height: 50px; object-fit: cover;">
+                {% else %}
+                    <span style="color: grey;">بدون عکس</span>
+                {% endif %}
+            </td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>
+                <a href="{% url 'product_edit' product.id %}" class="btn-edit">ویرایش</a>
+                <a href="{% url 'product_delete' product.id %}" class="btn-delete">حذف</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

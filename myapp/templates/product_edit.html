@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ویرایش محصول</title>
+    <style>
+        body {
+            font-family: Arial;
+            direction: rtl
+        }
+
+        form {
+            width: 50%;
+            margin: 20px auto;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 style="text-align:center;">ویرایش محصول</h2>
+    <form method="POST" action="{% url 'product_update' product.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>نام محصول:</label>
+        <input type="text" name="name" value="{{ product.name }}" required>
+        <label>قیمت (تومان):</label>
+        <label>تصویر محصول:</label>
+        <input type="file" name="image" accept="image/*">
+        {% if product.image %}
+            <p>عکس فعلی: <img src="{{ product.image.url }}" style="width: 100px;"></p>
+        {% endif %}
+        <input type="number" name="price" value="{{ product.price }}" required>
+        <button type="submit">ذخیره تغییرات</button>
+    </form>
+    <p style="text-align:center;"><a href="{% url 'product_list' %}">بازگشت به لیست</a></p>
+</body>
+
+</html>

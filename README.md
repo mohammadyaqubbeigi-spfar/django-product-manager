@@ -54,3 +54,22 @@ python manage.py createsuperuser
 
 # ۶. اجرای سرور
 python manage.py runserver
+
+## 📸 تصاویر
+
+![پنل ادمین](screenshots/admin-panel.png)
+*پنل مدیریت برای افزودن و ویرایش محصولات*
+
+![لیست محصولات](screenshots/product-list.png)
+*صفحه‌ی نمایش لیست محصولات با قابلیت جستجو*
+
+![ویرایش محصول](screenshots/product-edit.png)
+*فرم ویرایش محصول با امکان آپلود عکس*
+
+## 🤝 همکاری
+برای پیشنهادات، بهبودها یا گزارش مشکلات، لطفاً یک **Issue** در گیت‌هاب باز کنید یا یک **Pull Request** ارسال کنید.
+
+## 📧 ارتباط با من
+- **ایمیل:** mohammadyaqubbeigi@gmail.com
+- **گیت‌هاب:** [mohammadyaqubbeigi-spfar](https://github.com/mohammadyaqubbeigi-spfar)
+- **تلگرام:** @Spfarr
